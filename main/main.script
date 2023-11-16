@@ -3,6 +3,15 @@ function init(self)
 	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
 end
 
+local function play_idle_animation(self)
+	sprite.play_flipbook("#sprite", hash("front_walking"))
+	-- if self.dodge then
+	-- 	sprite.play_flipbook("#sprite", hash("dodge_idle"))
+	-- else
+	-- 	sprite.play_flipbook("#sprite", hash("idle"))
+	-- end
+end
+
 function on_input(self, action_id, action)
 	if action_id == hash("touch") and action.pressed then
 		print("Touch!")
