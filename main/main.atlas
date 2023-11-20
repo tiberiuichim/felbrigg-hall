@@ -1,5 +1,5 @@
 images {
-  image: "/assets/images/logo.png"
+  image: "/assets/images/background.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
@@ -7,19 +7,8 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/PV_Tides_Asset_Pack/tilesets/interior modern/Interior A4.png"
+  image: "/assets/images/IMG_4762.jpg"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
-animations {
-  id: "New Animation"
-  images {
-    image: "/assets/images/fetita-completa-midsize.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 60
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 margin: 0
 extrude_borders: 2
