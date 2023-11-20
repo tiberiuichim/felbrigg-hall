@@ -1,0 +1,30 @@
+# Features
+
+- 2d tilemap
+- buildings
+    - interact with door, change level
+- terrain features
+    - trees
+    - rocks
+    - bushes
+- when behind a terrain feature, that feature becomes transparent
+- gui with text and prompts
+- interact with objects
+- quest menu
+- gui for quest: options, buttons
+- in-game gui:
+  - money, 
+  - time of day
+- dungeon
+  - monsters, rooms, chests, lore, quests, NPCs
+  - 30 dungeon variations
+- day/night cycle
+- inventory
+- map of everything
+- fixed tilemap
+- shop to sell the loot
+- minigames
+    - slingshot
+    - pacman in library room
+
+- game is real-time, not turn-based

@@ -1,7 +1,7 @@
-image: "/assets/images/IMG_4762.png"
+image: "/assets/images/StarRealmsCozyForestPack24x24.png"
 tile_width: 24
 tile_height: 24
-tile_margin: 1
+tile_margin: 0
 tile_spacing: 0
 collision: ""
 material_tag: "tile"
@@ -15,6 +15,6 @@ animations {
   flip_horizontal: 0
   flip_vertical: 0
 }
-extrude_borders: 2
+extrude_borders: 0
 inner_padding: 0
 sprite_trim_mode: SPRITE_TRIM_MODE_OFF
