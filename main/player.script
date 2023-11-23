@@ -32,10 +32,10 @@ function update(self, dt)
 
 	if self.dir.x > 0 then
 		anim = hash("walk_right")
-		self.stop_animation = hash("walk_right")
+		self.stop_animation = hash("idle_right")
 	elseif self.dir.x < 0 then
 		anim = hash("walk_left")
-		self.stop_animation = hash("walk_left")
+		self.stop_animation = hash("idle_left")
 	elseif self.dir.y > 0 then
 		anim = hash("walk_back")
 		self.stop_animation = hash("idle_back")
