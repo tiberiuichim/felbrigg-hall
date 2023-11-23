@@ -12,7 +12,7 @@ function init(self)
 	self.dir = vmath.vector3()
 	self.current_animation = nil
 
-	self.stop_animation = hash("front_idle")
+	self.stop_animation = hash("idle_front")
 end
 
 function update(self, dt)
@@ -31,17 +31,17 @@ function update(self, dt)
 	local anim = self.stop_animation
 
 	if self.dir.x > 0 then
-		anim = hash("go_right_walk")
-		self.stop_animation = hash("go_right_idle")
+		anim = hash("walk_right")
+		self.stop_animation = hash("walk_right")
 	elseif self.dir.x < 0 then
-		anim = hash("go_left_walk")
-		self.stop_animation = hash("go_left_idle")
+		anim = hash("walk_left")
+		self.stop_animation = hash("walk_left")
 	elseif self.dir.y > 0 then
-		anim = hash("back_walk")
-		self.stop_animation = hash("back_idle")
+		anim = hash("walk_back")
+		self.stop_animation = hash("idle_back")
 	elseif self.dir.y < 0 then
-		anim = hash("front_walk")
-		self.stop_animation = hash("front_idle")
+		anim = hash("walk_front")
+		self.stop_animation = hash("idle_front")
 	end
 
 	if anim ~= self.current_animation then
