@@ -45,7 +45,7 @@ function update(self, dt)
 	end
 
 	if anim ~= self.current_animation then
-		msg.post("#player_sprite", "play_animation", { id = anim })
+		msg.post("#sprite", "play_animation", { id = anim })
 		-- msg.post("#player_sprite", "play_animation", { id = self.last_animation})
 		self.current_animation = anim
 	end
