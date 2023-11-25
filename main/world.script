@@ -1,0 +1,11 @@
+function on_message(self, message_id, message, sender)
+	-- if message_id == hash("trigger_response") then
+	-- 	if message.enter then
+	-- 		-- Character entered the trigger area
+	-- 		msg.post(sender, "trigger_response", { enter = true, other_group = hash("player") })
+	-- 	elseif message.exit then
+	-- 		-- Character exited the trigger area
+	-- 		msg.post(sender, "trigger_response", { exit = true, other_group = hash("player") })
+	-- 	end
+	-- end
+end

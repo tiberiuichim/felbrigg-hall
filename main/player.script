@@ -1,4 +1,4 @@
-go.property("character_name", "Dalia")
+go.property("character_name", hash("Dalia"))
 
 KEY_UP = hash("key_up")
 KEY_DOWN = hash("key_down")
@@ -20,20 +20,12 @@ function init(self)
 	self.current_animation = nil
 
 	self.stop_animation = hash("idle_front")
+
+	-- local textnode = gui.get_node("label")
+	-- gui.set_text(textnode, self.character_name)
 end
 
-function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-
-	if vmath.length_sqr(self.dir) > 1 then
-		self.dir = vmath.normalize(self.dir)
-	end
-	local p = go.get_position()
-
-	go.set_position(p + self.dir * SPEED * dt)
-
+function animate_character(self) 
 	-- setup animations
 	local anim = self.stop_animation
 
@@ -56,9 +48,40 @@ function update(self, dt)
 		-- msg.post("#player_sprite", "play_animation", { id = self.last_animation})
 		self.current_animation = anim
 	end
+end
 
-	-- done animating
+-- function character_collides_with_obstacle(position)
+-- 	-- Check for collisions with the obstacle group
+-- 	local result = physics.raycast(position, position + vmath.vector3(0, 0, 0), {group = hash("obstacle")})
+-- 	return result and result.group == hash("obstacle")
+-- end
+
+function update(self, dt)
+	-- this makes sure to normalize the vector, but I don't this it's needed
+	-- if vmath.length_sqr(self.dir) > 1 then
+	-- 	self.dir = vmath.normalize(self.dir)
+	-- end
+	
+	local p = go.get_position()
+
+	-- move the character to new position
+	-- Check for collisions with obstacles
+-- 	local collision_response = vmath.vector3(0, 0, 0) -- Initialize response vector
+-- 
+-- 	if character_collides_with_obstacle(pos) then
+-- 		-- Handle collision, for example, stop movement
+-- 		collision_response = vmath.vector3(0, 0, 0)
+-- 	end
+	
+	go.set_position(p + self.dir * SPEED * dt)
+
+	animate_character(self)
+
+	-- stop moving
 	self.dir = vmath.vector3()
+
+	-- draw the name text
+	-- msg.post("@render:", "draw_text", { text = "Hello", position = vmath.vector3(10, 20, 0) } )
 end
 
 function on_input(self, action_id, action)
@@ -89,4 +112,35 @@ function on_input(self, action_id, action)
 		camera.set_zoom(CAMERA_ID, zoom)
 	end
 
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") then
+		print('m.group', message.group)
+		print('m.normal', message.normal)
+		print('m.distance', message.distance)
+		print('position', go.get_position())
+
+
+		-- DEBUG:SCRIPT: m.group	hash: [objects]
+		-- DEBUG:SCRIPT: m.normal	vmath.vector3(1, 0, 0)
+		-- DEBUG:SCRIPT: m.distance	-1.5247106552124
+		-- DEBUG:SCRIPT: position	vmath.vector3(-76.475379943848, -58.996097564697, 1)
+		
+		-- go.set_position(go.get_position() + message.normal * message.distance)
+	end
+	
+	-- print("message", message_id)
+	-- 
+	-- if message_id == hash("trigger_response") then
+	-- 	if message.enter then
+	-- 		-- Character entered a trigger
+	-- 		if message.other_group == hash("terrain_object_collisions") then
+	-- 			-- Handle collision with trees (e.g., stop movement)
+	-- 			print("Collided with a tree!")
+	-- 		end
+	-- 	elseif message.exit then
+	-- 		-- Character exited a trigger
+	-- 	end
+	-- end
 end
