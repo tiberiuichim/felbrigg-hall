@@ -36,3 +36,6 @@ max_tile_count = 100000
 [sprite]
 subpixels = 0
 
+[graphics]
+default_texture_mag_filter = nearest
+
