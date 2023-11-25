@@ -17,7 +17,7 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 5
+  fps: 4
   flip_horizontal: 0
   flip_vertical: 0
 }
@@ -40,7 +40,7 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 5
+  fps: 4
   flip_horizontal: 0
   flip_vertical: 0
 }
@@ -63,7 +63,7 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 5
+  fps: 4
   flip_horizontal: 0
   flip_vertical: 0
 }
@@ -86,7 +86,7 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 5
+  fps: 4
   flip_horizontal: 0
   flip_vertical: 0
 }
@@ -109,7 +109,7 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 4
+  fps: 5
   flip_horizontal: 0
   flip_vertical: 0
 }
@@ -155,7 +155,7 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 5
+  fps: 6
   flip_horizontal: 0
   flip_vertical: 0
 }

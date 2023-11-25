@@ -4,6 +4,8 @@ KEY_RIGHT = hash("key_right")
 KEY_LEFT = hash("key_left")
 SPEED = 100
 
+go.property("character_name", "Dalia")
+
 function init(self)
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/

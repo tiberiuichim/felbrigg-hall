@@ -1,42 +1,4 @@
 name: "main"
-instances {
-  id: "camera"
-  prototype: "/orthographic/camera.go"
-  position {
-    x: 51.0
-    y: 80.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  component_properties {
-    id: "script"
-    properties {
-      id: "projection"
-      value: "FIXED_ZOOM"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "follow"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "follow_target"
-      value: "/player"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
 scale_along_z: 0
 embedded_instances {
   id: "go"
@@ -120,8 +82,8 @@ embedded_instances {
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "\"\n"
   "  position {\n"
-  "    x: 9.0\n"
-  "    y: 50.0\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
   "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
@@ -131,16 +93,78 @@ embedded_instances {
   "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
-  "    x: 1.417462\n"
-  "    y: 1.313677\n"
-  "    z: 1.36416\n"
+  "    x: 0.82243\n"
+  "    y: 0.794181\n"
+  "    z: 1.124068\n"
   "  }\n"
   "}\n"
   ""
   position {
-    x: 49.0
-    y: 33.0
+    x: -440.0
+    y: 132.0
     z: 0.6
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "orthocamera"
+  data: "components {\n"
+  "  id: \"custom_camera\"\n"
+  "  component: \"/main/custom_camera.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"zoom\"\n"
+  "    value: \"10.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"projection\"\n"
+  "    value: \"FIXED_ZOOM\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"follow\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"follow_immediately\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"follow_target\"\n"
+  "    value: \"/player\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
   }
   rotation {
     x: 0.0

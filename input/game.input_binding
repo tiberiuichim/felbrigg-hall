@@ -30,6 +30,14 @@ key_trigger {
   input: KEY_D
   action: "key_right"
 }
+key_trigger {
+  input: KEY_Z
+  action: "zoom_in"
+}
+key_trigger {
+  input: KEY_X
+  action: "zoom_out"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"
