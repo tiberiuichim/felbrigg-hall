@@ -38,7 +38,19 @@ key_trigger {
   input: KEY_X
   action: "zoom_out"
 }
+key_trigger {
+  input: KEY_C
+  action: "action"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_UP
+  action: "zoom_in"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_DOWN
+  action: "zoom_out"
 }
