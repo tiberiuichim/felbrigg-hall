@@ -3,23 +3,6 @@ scale_along_z: 0
 embedded_instances {
   id: "go"
   data: "components {\n"
-  "  id: \"main\"\n"
-  "  component: \"/main/main.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
   "  id: \"start_tilemap_72x72\"\n"
   "  component: \"/main/start_tilemap_72x72.tilemap\"\n"
   "  position {\n"
@@ -84,7 +67,7 @@ embedded_instances {
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
-  "    z: 0.0\n"
+  "    z: 1.0\n"
   "  }\n"
   "  rotation {\n"
   "    x: 0.0\n"
@@ -102,7 +85,7 @@ embedded_instances {
   position {
     x: 0.0
     y: 0.0
-    z: 0.8
+    z: 0.0
   }
   rotation {
     x: 0.0
@@ -137,6 +120,16 @@ embedded_instances {
   "    value: \"FIXED_ZOOM\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
+  "  properties {\n"
+  "    id: \"follow\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"follow_target\"\n"
+  "    value: \"/player\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
   "  property_decls {\n"
   "  }\n"
   "}\n"
@@ -158,43 +151,6 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "zoomer"
-  data: "components {\n"
-  "  id: \"zoom\"\n"
-  "  component: \"/main/zoom.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
   "  }\n"
   "}\n"
   ""

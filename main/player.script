@@ -1,3 +1,5 @@
+go.property("character_name", "Dalia")
+
 KEY_UP = hash("key_up")
 KEY_DOWN = hash("key_down")
 KEY_RIGHT = hash("key_right")
@@ -6,13 +8,14 @@ SPEED = 100
 
 local camera = require "orthographic.camera"
 
-go.property("character_name", "Dalia")
+local CAMERA_ID = hash("/orthocamera")
 
 function init(self)
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/
 	-- Remove this function if not needed
 	msg.post(".", "acquire_input_focus")
+
 	self.dir = vmath.vector3()
 	self.current_animation = nil
 
@@ -23,12 +26,12 @@ function update(self, dt)
 	-- Add update code here
 	-- Learn more: https://defold.com/manuals/script/
 	-- Remove this function if not needed
-	
+
 	if vmath.length_sqr(self.dir) > 1 then
 		self.dir = vmath.normalize(self.dir)
 	end
 	local p = go.get_position()
-	
+
 	go.set_position(p + self.dir * SPEED * dt)
 
 	-- setup animations
@@ -59,6 +62,12 @@ function update(self, dt)
 end
 
 function on_input(self, action_id, action)
+	local action_pos = vmath.vector3(action.x, action.y, 0)
+	local action_world_pos = camera.screen_to_world(CAMERA_ID, action_pos)
+	local camera_pos = go.get_position(CAMERA_ID)
+	local zoom = camera.get_zoom(CAMERA_ID)
+
+	-- go.set_position(action_world_pos, "zoomer")
 
 	if action_id == KEY_UP then
 		self.dir.y = 1                            -- [15]
@@ -69,13 +78,15 @@ function on_input(self, action_id, action)
 	elseif action_id == KEY_RIGHT then
 		self.dir.x = 1
 	elseif action_id == hash("action") then
-		-- msg.post("/orthocamera", camera.MSG_SHAKE, {}, function () 
-		-- 	print("We shook the camera")
-		-- end)
-		print('zooming')
-		msg.post("/orthocamera", camera.MSG_ZOOM_TO, {zoom = 10}, function () 
-			print("We zoomed the camera")
+		msg.post("/orthocamera", camera.MSG_SHAKE, {}, function () 
+			print("We shook the camera")
 		end)
+	elseif action_id == hash("zoom_in") then
+		zoom = math.min(4, zoom + 0.05)
+		camera.set_zoom(CAMERA_ID, zoom)
+	elseif action_id == hash("zoom_out") then
+		zoom = math.max(0.2, zoom - 0.05)
+		camera.set_zoom(CAMERA_ID, zoom)
 	end
 
 end
