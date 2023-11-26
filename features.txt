@@ -62,3 +62,17 @@
 	-- 	-- remove that component in that case
 	-- 	self.velocity = self.velocity - proj * normal
 	-- end
+
+
+	-- project the correction vector onto the contact normal
+	-- (the correction vector is the 0-vector for the first contact point)
+	-- calculate the compensation we need to make for this contact point
+	-- add it to the correction vector
+	-- apply the compensation to the player character
+	
+	-- local proj = vmath.dot(self.correction, normal)
+	-- print("proj", proj, self.correction)
+	-- local comp = (distance - proj) * normal
+	-- self.correction = self.correction + comp
+	-- go.set_position(go.get_position() + comp)
+
