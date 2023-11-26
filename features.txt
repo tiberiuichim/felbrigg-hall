@@ -48,3 +48,17 @@
 	-- 		-- Character exited a trigger
 	-- 	end
 	-- end
+
+
+	-- check if the normal points enough up to consider the player standing on the ground
+	-- (0.7 is roughly equal to 45 degrees deviation from pure vertical direction)
+	-- if normal.y > 0.7 then
+	-- 	self.is_touching_obstacles = true
+	-- end
+	-- -- project the velocity onto the normal
+	-- proj = vmath.dot(self.velocity, normal)
+	-- -- if the projection is negative, it means that some of the velocity points towards the contact point
+	-- if proj < 0 then
+	-- 	-- remove that component in that case
+	-- 	self.velocity = self.velocity - proj * normal
+	-- end
