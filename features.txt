@@ -28,3 +28,23 @@
     - pacman in library room
 
 - game is real-time, not turn-based
+
+
+
+	-- draw the name text
+	-- msg.post("@render:", "draw_text", { text = "Hello", position = vmath.vector3(10, 20, 0) } )
+
+
+	-- print("message", message_id)
+	-- 
+	-- if message_id == hash("trigger_response") then
+	-- 	if message.enter then
+	-- 		-- Character entered a trigger
+	-- 		if message.other_group == hash("terrain_object_collisions") then
+	-- 			-- Handle collision with trees (e.g., stop movement)
+	-- 			print("Collided with a tree!")
+	-- 		end
+	-- 	elseif message.exit then
+	-- 		-- Character exited a trigger
+	-- 	end
+	-- end
