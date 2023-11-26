@@ -35,6 +35,8 @@ function init(self)
 	self.velocity = vmath.vector3()	-- directional speed of movement
 	self.pp = vmath.vector3()	-- player position
 	self.correction = vmath.vector3()	-- correction factor because we're inside collision
+
+	self.trees_visible = true
 end
 
 function play_animation(self) 
@@ -151,7 +153,20 @@ function shake_camera(self)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("contact_point_response") then
+	if (message.group == hash('oclusion')) then
+		-- if message.distance ~= nil then
+		-- 	if message.distance > 0 and self.trees_visible == true then
+		-- 		print("hiding trees")
+		-- 		self.trees_visible = false
+		-- 		local tilemap_url = msg.url("/world#tiledmap-defold")
+		-- 		go.set(tilemap_url, "opacity", 0.5)
+		-- 	elseif message.distance < 0 and self.trees_visible == false then
+		-- 		print("showing trees")
+		-- 		self.trees_visible = true
+		-- 	end
+		-- end
+		-- pprint(message)
+	elseif message_id == hash("contact_point_response") then
 		handle_geometry_contact(self, message.normal, message.distance)
 	end
 end

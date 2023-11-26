@@ -29,6 +29,9 @@
 
 - game is real-time, not turn-based
 
+- Resources:
+- https://github.com/FlexYourBrain/2D_EmptyProject_PostprocessReady/tree/main
+- https://github.com/defold/tutorial-movement
 
 
 	-- draw the name text
