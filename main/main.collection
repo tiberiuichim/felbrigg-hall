@@ -251,7 +251,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "orthocamera"
+  id: "camera"
   data: "components {\n"
   "  id: \"camera\"\n"
   "  component: \"/orthographic/camera.script\"\n"
@@ -306,6 +306,62 @@ embedded_instances {
   "    x: 27.0\n"
   "    y: -4.0\n"
   "    z: 0.9\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "weather"
+  data: "components {\n"
+  "  id: \"weather\"\n"
+  "  component: \"/main/weather.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"rain_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/rain.go\\\"\\n"
+  "load_dynamically: false\\n"
+  "dynamic_prototype: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
   "    x: 0.0\n"

@@ -13,10 +13,10 @@
         },
         "tiledmap.tmx": {
             "scale": 2,
-            "selectedLayer": 0,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 1083.25,
-                "y": 5621.75
+                "x": 202.75,
+                "y": 2200.25
             }
         }
     },
