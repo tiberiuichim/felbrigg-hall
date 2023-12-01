@@ -11,7 +11,18 @@ function init(self)
 end
 
 function update(self, dt)
-	local coords = orthocam.screen_to_world_bounds(self.camera)
+	local coords = orthocam.screen_to_world_bounds(self.camera)	-- top_x, top_y, bottom_x, bottom_y -- vmath.vector4(-640, 360.00003051758, 640, -360.00003051758)
+	local pos = go.get_position(self.fx)
+	local newpos = vmath.vector3(coords.x, coords.y, pos.z)
+
+	go.set_position(newpos, self.fx)
+	go.set_scale(20, self.fx)
+	
+	-- pos.x = coords.
+	-- go.set_position(coords, self.fx)
+	-- print('coords', coords.x, coords.y, coords.z, coords.w)
+	
+	print('pos', pos)
 	-- print(coords)
 	
 	-- local viewport = orthocam.get_viewport(self.camera)
