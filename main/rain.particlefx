@@ -324,7 +324,7 @@ emitters {
       key: MODIFIER_KEY_MAX_DISTANCE
       points {
         x: 0.0
-        y: 1000.0
+        y: 10.0
         t_x: 1.0
         t_y: 0.0
       }

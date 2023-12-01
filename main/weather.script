@@ -1,5 +1,3 @@
--- go.property("factory", hash("#rain_factory"))
-
 local orthocam = require "orthographic.camera"
 
 function init(self)
@@ -7,39 +5,55 @@ function init(self)
 	
 	local factory_url = "#rain_factory"
 	self.fx = msg.url(factory.create(factory_url, pos))
+	go.set_scale(15, self.fx)
+	go.set_parent(".", self.fx, true)
 	particlefx.play(self.fx)
+
+	go.set(".", "euler.z", 0)
+	animate(self)
+end
+
+function animate(self)
+	print('start_anim')
+	go.animate(self.fx, "euler.z", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 2, 0, animate)
 end
 
 function update(self, dt)
 	local coords = orthocam.screen_to_world_bounds(self.camera)	-- top_x, top_y, bottom_x, bottom_y -- vmath.vector4(-640, 360.00003051758, 640, -360.00003051758)
+	
+	local world_screen_width = coords.z - coords.x
+	
 	local pos = go.get_position(self.fx)
-	local newpos = vmath.vector3(coords.x, coords.y, pos.z)
+	local newpos = vmath.vector3(coords.x + world_screen_width/2, coords.y, pos.z)
 
 	go.set_position(newpos, self.fx)
-	go.set_scale(20, self.fx)
-	
-	-- pos.x = coords.
-	-- go.set_position(coords, self.fx)
-	-- print('coords', coords.x, coords.y, coords.z, coords.w)
-	
-	print('pos', pos)
-	-- print(coords)
-	
-	-- local viewport = orthocam.get_viewport(self.camera)
-	-- local screen = 
-	-- print(viewport)
-	-- local world_coords = orthocam.screen_to_world(self.camera, viewport)
-	-- print(world_coords)
-	-- 
-	-- -- local pos = go.get_position("/player")
-	-- -- go.set_position(pos, self.fx)
-	-- -- print("position", pos)
-	-- -- 
-	-- -- local s = vmath.vector3(10.0, 10.0, 10.0)
-	-- -- go.set_scale(s, self.fx)
+
+	local rot = vmath.quat_rotation_x(3.14)
+	local res = vmath.rotate(rot, newpos)
+
 end
 
+-- local v = go.get_rotation(self.fx)
+-- go.set_rotation(rot + 1, self.fx)
+-- pos.x = coords.
+-- go.set_position(coords, self.fx)
+-- print('coords', coords.x, coords.y, coords.z, coords.w)
 
+-- print('pos', pos)
+-- print(coords)
+
+-- local viewport = orthocam.get_viewport(self.camera)
+-- local screen = 
+-- print(viewport)
+-- local world_coords = orthocam.screen_to_world(self.camera, viewport)
+-- print(world_coords)
+-- 
+-- -- local pos = go.get_position("/player")
+-- -- go.set_position(pos, self.fx)
+-- -- print("position", pos)
+-- -- 
+-- -- local s = vmath.vector3(10.0, 10.0, 10.0)
+-- -- go.set_scale(s, self.fx)
 -- local camera_url = msg.url("/camera")
 -- local cameras = orthocam.get_cameras()
 -- for k, v in pairs(cameras) do
@@ -83,3 +97,18 @@ end
 
 -- 	-- print("projection", projection)
 -- local camera_url = msg.url("/camera")
+
+-- Define the animation properties
+-- local rotation_params = {
+-- 	mode = go.PLAYBACK_LOOP_FORWARD, -- Play the animation in a loop
+-- 	easing = go.EASING_LINEAR,       -- Use linear easing (you can change this)
+-- 	duration = 2,                    -- Duration of the animation in seconds
+-- 	curve = vmath.vector({0, 0, 360}) -- Rotation in degrees (z-axis)
+-- }
+
+-- Start the rotation animation
+
+-- go.animate(".", "euler.z", rotation_params)
+-- go.property("factory", hash("#rain_factory"))
+-- pprint(world_screen_width)
+-- pprint(coords)
