@@ -46,6 +46,7 @@ embedded_instances {
   "restitution: 0.5\\n"
   "group: \\\"world\\\"\\n"
   "mask: \\\"player\\\"\\n"
+  "mask: \\\"npc\\\"\\n"
   "linear_damping: 0.0\\n"
   "angular_damping: 0.0\\n"
   "locked_rotation: false\\n"
