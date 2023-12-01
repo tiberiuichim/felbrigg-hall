@@ -1,5 +1,5 @@
 go.property("speed", 100)
-go.property(camera, hash("/orthocamera"))
+go.property(camera, hash("/camera"))
 
 KEY_UP = hash("key_up")
 KEY_DOWN = hash("key_down")

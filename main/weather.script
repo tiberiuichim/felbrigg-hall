@@ -1,99 +1,74 @@
-local camera = require "orthographic.camera"
+-- go.property("factory", hash("#rain_factory"))
+
+local orthocam = require "orthographic.camera"
 
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-	
-	-- local camera_url = msg.url("/camera")
-	local pos = go.get_position("/player")
+	self.camera = hash("/camera")
 	
 	local factory_url = "#rain_factory"
-	self.particlefx_url = factory.create(factory_url, pos)
-	-- go.set_position(particlefx_url, pos)
-	particlefx.play(self.particlefx_url)
-	-- 
-	-- print("url", particlefx_url)
-	-- print('camera_url', camera_url)
-
-	-- go.set_parent(particlefx_url, camera_url)
-	
-	-- msg.post(particlefx_url, "set_parent", { parent_id = camera_url })
-	
-	-- particlefx.play("#rain")
-	-- local camera_id = hash("/camera")
-	-- -- 
-	-- local vp = camera.get_viewport(camera_id)
-	-- pprint("viewport", viewport)
-
-	-- particlefx.set_constant(particlefx_url, "emitter", "width", vp.z)
-	-- particlefx.set_constant(particlefx_url, "emitter", "height", vp.w)
-
-	-- 	print(viewport.x, viewport.y, viewport.z, viewport.w)
-	-- 	local view = camera.get_view(camera_id)
-	-- 	
-	-- 	-- pprint("view", view)
-	-- 	local projection = camera.get_projection(camera_id)
-	-- 	local pos = vmath.vector3(viewport.x/2, viewport.w, 0)
-	-- 	pprint(pos)
-	
-	-- 	-- print("projection", projection)
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	self.fx = msg.url(factory.create(factory_url, pos))
+	particlefx.play(self.fx)
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	local coords = orthocam.screen_to_world_bounds(self.camera)
+	-- print(coords)
 	
-	local pos = go.get_position("/player")
-	local url = msg.url(self.particlefx_url)
-	
-	go.set_position(pos, self.particlefx_url)
-	
-	-- local viewport = camera.get_viewport(camera_id)
-	-- pprint("viewport", viewport)
-	-- pprint('player_pos', player_pos)
-	-- go.set_position(player_pos)
-
-	-- local view = go.get("/camera#camera", "view")
-	-- pprint(view)
+	-- local viewport = orthocam.get_viewport(self.camera)
+	-- local screen = 
+	-- print(viewport)
+	-- local world_coords = orthocam.screen_to_world(self.camera, viewport)
+	-- print(world_coords)
+	-- 
+	-- -- local pos = go.get_position("/player")
+	-- -- go.set_position(pos, self.fx)
+	-- -- print("position", pos)
+	-- -- 
+	-- -- local s = vmath.vector3(10.0, 10.0, 10.0)
+	-- -- go.set_scale(s, self.fx)
 end
 
-function fixed_update(self, dt)
-	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
-	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
-	-- Physics section of game.project
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
 
-function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
-end
+-- local camera_url = msg.url("/camera")
+-- local cameras = orthocam.get_cameras()
+-- for k, v in pairs(cameras) do
+-- 	print(k, v)
+-- end
+-- local pos = go.get_position("/player")
+-- print(self.factory)
+-- self.camera = msg.url("/camera")
+-- go.set_position(particlefx_url, pos)
+-- local viewport = camera.get_viewport(camera_id)
+-- pprint("viewport", viewport)
+-- pprint('player_pos', player_pos)
+-- go.set_position(player_pos)
 
-function on_input(self, action_id, action)
-	-- Add input-handling code here. The game object this script is attached to
-	-- must have acquired input focus:
-	--
-	--    msg.post(".", "acquire_input_focus")
-	--
-	-- All mapped input bindings will be received. Mouse and touch input will
-	-- be received regardless of where on the screen it happened.
-	-- Learn more: https://defold.com/manuals/input/
-	-- Remove this function if not needed
-end
+-- local view = go.get("/camera#camera", "view")
+-- pprint(view)
+-- 
+-- print("url", particlefx_url)
+-- print('camera_url', camera_url)
 
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
-end
+-- go.set_parent(particlefx_url, camera_url)
+
+-- msg.post(particlefx_url, "set_parent", { parent_id = camera_url })
+
+-- particlefx.play("#rain")
+-- local camera_id = hash("/camera")
+-- -- 
+-- local vp = camera.get_viewport(camera_id)
+-- pprint("viewport", viewport)
+
+-- particlefx.set_constant(particlefx_url, "emitter", "width", vp.z)
+-- particlefx.set_constant(particlefx_url, "emitter", "height", vp.w)
+
+-- 	print(viewport.x, viewport.y, viewport.z, viewport.w)
+-- 	local view = camera.get_view(camera_id)
+-- 	
+-- 	-- pprint("view", view)
+-- 	local projection = camera.get_projection(camera_id)
+-- 	local pos = vmath.vector3(viewport.x/2, viewport.w, 0)
+-- 	pprint(pos)
+
+-- 	-- print("projection", projection)
+-- local camera_url = msg.url("/camera")
