@@ -19,8 +19,8 @@ IDLE_FRONT = hash("idle_front")
 ZOOM_IN = hash("zoom_in")
 ZOOM_OUT = hash("zoom_out")
 
-ZOOM_OUT_MAX = 0.5
-ZOOM_IN_MAX = 4
+ZOOM_OUT_MAX = 0.8
+ZOOM_IN_MAX = 6
 
 local camera = require "orthographic.camera"
 
