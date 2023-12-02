@@ -1,5 +1,7 @@
 go.property("speed", 100)
-go.property(camera, hash("/camera"))
+go.property("max_zoom", 0.9 )
+-- go.property("camera", hash("/camera"))
+go.property("min_zoom", 10)
 
 KEY_UP = hash("key_up")
 KEY_DOWN = hash("key_down")
@@ -19,8 +21,8 @@ IDLE_FRONT = hash("idle_front")
 ZOOM_IN = hash("zoom_in")
 ZOOM_OUT = hash("zoom_out")
 
-ZOOM_OUT_MAX = 0.8
-ZOOM_IN_MAX = 6
+-- ZOOM_OUT_MAX = 1
+--ZOOM_IN_MAX = 6
 
 local camera = require "orthographic.camera"
 
@@ -136,14 +138,16 @@ end
 	
 function zoom_out(self)
 	local zoom = camera.get_zoom(self.camera)
-	zoom = math.max(ZOOM_OUT_MAX, zoom - 0.05)
+	zoom = math.max(self.max_zoom, zoom - 0.05)
 	camera.set_zoom(self.camera, zoom)
+	print("zoom in", zoom)
 end
 
 function zoom_in(self) 
 	local zoom = camera.get_zoom(self.camera)
-	zoom = math.min(ZOOM_IN_MAX, zoom + 0.05)
+	zoom = math.min(self.min_zoom, zoom + 0.05)
 	camera.set_zoom(self.camera, zoom)
+	print("zoom in", zoom)
 end
 
 function shake_camera(self)

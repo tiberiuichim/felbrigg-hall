@@ -86563,7 +86563,7 @@ layers {
   cell {
     x: 11
     y: 9
-    tile: 69
+    tile: 462
     h_flip: 0
     v_flip: 0
     rotate90: 0
@@ -157299,7 +157299,7 @@ layers {
 }
 layers {
   id: "terrain_objects"
-  z: 1.0
+  z: 3.0E-4
   is_visible: 1
   cell {
     x: 10
@@ -157382,14 +157382,6 @@ layers {
     rotate90: 0
   }
   cell {
-    x: 21
-    y: 3
-    tile: 190
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
-  }
-  cell {
     x: 22
     y: 3
     tile: 190
@@ -157462,14 +157454,6 @@ layers {
     rotate90: 0
   }
   cell {
-    x: 21
-    y: 4
-    tile: 170
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
-  }
-  cell {
     x: 22
     y: 4
     tile: 170
@@ -157542,14 +157526,6 @@ layers {
     rotate90: 0
   }
   cell {
-    x: 21
-    y: 5
-    tile: 150
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
-  }
-  cell {
     x: 22
     y: 5
     tile: 150
@@ -157617,14 +157593,6 @@ layers {
     x: 12
     y: 6
     tile: 132
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
-  }
-  cell {
-    x: 21
-    y: 6
-    tile: 130
     h_flip: 0
     v_flip: 0
     rotate90: 0
@@ -157897,14 +157865,6 @@ layers {
     x: 10
     y: 9
     tile: 461
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
-  }
-  cell {
-    x: 11
-    y: 9
-    tile: 462
     h_flip: 0
     v_flip: 0
     rotate90: 0

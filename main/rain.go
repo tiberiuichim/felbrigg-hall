@@ -2,7 +2,7 @@ components {
   id: "rain"
   component: "/main/rain.particlefx"
   position {
-    x: 0.0
+    x: 2.0
     y: 0.0
     z: 0.0
   }

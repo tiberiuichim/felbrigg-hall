@@ -2213,17 +2213,17 @@ convex_hulls {
 convex_hulls {
   index: 1871
   count: 4
-  collision_group: "objects"
+  collision_group: ""
 }
 convex_hulls {
   index: 1875
   count: 4
-  collision_group: "objects"
+  collision_group: ""
 }
 convex_hulls {
   index: 1879
   count: 4
-  collision_group: "objects"
+  collision_group: ""
 }
 convex_hulls {
   index: 1883
@@ -2243,7 +2243,7 @@ convex_hulls {
 convex_hulls {
   index: 1888
   count: 0
-  collision_group: ""
+  collision_group: "oclusion"
 }
 convex_hulls {
   index: 1888
@@ -2313,17 +2313,17 @@ convex_hulls {
 convex_hulls {
   index: 1894
   count: 4
-  collision_group: "objects"
+  collision_group: ""
 }
 convex_hulls {
   index: 1898
   count: 4
-  collision_group: "objects"
+  collision_group: ""
 }
 convex_hulls {
   index: 1902
   count: 4
-  collision_group: "objects"
+  collision_group: ""
 }
 convex_hulls {
   index: 1906
@@ -2407,15 +2407,6 @@ convex_hulls {
 }
 collision_groups: "objects"
 collision_groups: "oclusion"
-animations {
-  id: "anim"
-  start_tile: 1
-  end_tile: 1
-  playback: PLAYBACK_NONE
-  fps: 30
-  flip_horizontal: 0
-  flip_vertical: 0
-}
 extrude_borders: 2
 inner_padding: 0
 sprite_trim_mode: SPRITE_TRIM_MODE_OFF
