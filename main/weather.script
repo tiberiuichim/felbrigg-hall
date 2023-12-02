@@ -5,7 +5,7 @@ function init(self)
 	
 	local factory_url = "#rain_factory"
 	self.fx = msg.url(factory.create(factory_url, pos))
-	go.set_scale(15, self.fx)
+	-- go.set_scale(15, self.fx)
 	go.set_parent(".", self.fx, true)
 	particlefx.play(self.fx)
 
@@ -15,7 +15,7 @@ end
 
 function animate(self)
 	print('start_anim')
-	go.animate(self.fx, "euler.z", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 2, 0, animate)
+	--go.animate(self.fx, "euler.z", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 2, 0, animate)
 end
 
 function update(self, dt)
