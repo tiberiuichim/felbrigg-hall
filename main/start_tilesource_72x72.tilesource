@@ -353,7 +353,7 @@ convex_hulls {
 convex_hulls {
   index: 298
   count: 14
-  collision_group: ""
+  collision_group: "objects"
 }
 convex_hulls {
   index: 312
@@ -453,7 +453,7 @@ convex_hulls {
 convex_hulls {
   index: 436
   count: 13
-  collision_group: ""
+  collision_group: "objects"
 }
 convex_hulls {
   index: 449
@@ -1888,7 +1888,7 @@ convex_hulls {
 convex_hulls {
   index: 1802
   count: 0
-  collision_group: ""
+  collision_group: "objects"
 }
 convex_hulls {
   index: 1802
@@ -2093,7 +2093,7 @@ convex_hulls {
 convex_hulls {
   index: 1844
   count: 0
-  collision_group: ""
+  collision_group: "objects"
 }
 convex_hulls {
   index: 1844

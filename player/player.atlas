@@ -4,18 +4,6 @@ animations {
     image: "/assets/images/Mc_done/Mc_idle_front1.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_front2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_front3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_front4.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 4
   flip_horizontal: 0
@@ -25,18 +13,6 @@ animations {
   id: "idle_back"
   images {
     image: "/assets/images/Mc_done/Mc_idle_back1.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_back2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_back3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_back4.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -50,18 +26,6 @@ animations {
     image: "/assets/images/Mc_done/Mc_idle_left1.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_left2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_left3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_left4.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 4
   flip_horizontal: 0
@@ -71,18 +35,6 @@ animations {
   id: "idle_right"
   images {
     image: "/assets/images/Mc_done/Mc_idle_right1.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_right2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_right3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/images/Mc_done/Mc_idle_right4.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD

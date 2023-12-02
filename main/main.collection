@@ -99,7 +99,7 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"speed\"\n"
-  "    value: \"200.0\"\n"
+  "    value: \"100.0\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  property_decls {\n"
