@@ -1,5 +1,5 @@
 go.property("speed", 100)
-go.property(camera, hash("/orthocamera"))
+go.property(camera, hash("/camera"))
 
 KEY_UP = hash("key_up")
 KEY_DOWN = hash("key_down")
@@ -19,8 +19,8 @@ IDLE_FRONT = hash("idle_front")
 ZOOM_IN = hash("zoom_in")
 ZOOM_OUT = hash("zoom_out")
 
-ZOOM_OUT_MAX = 0.5
-ZOOM_IN_MAX = 4
+ZOOM_OUT_MAX = 0.8
+ZOOM_IN_MAX = 6
 
 local camera = require "orthographic.camera"
 

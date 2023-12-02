@@ -1,0 +1,114 @@
+local orthocam = require "orthographic.camera"
+
+function init(self)
+	self.camera = hash("/camera")
+	
+	local factory_url = "#rain_factory"
+	self.fx = msg.url(factory.create(factory_url, pos))
+	go.set_scale(15, self.fx)
+	go.set_parent(".", self.fx, true)
+	particlefx.play(self.fx)
+
+	go.set(".", "euler.z", 0)
+	animate(self)
+end
+
+function animate(self)
+	print('start_anim')
+	go.animate(self.fx, "euler.z", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 2, 0, animate)
+end
+
+function update(self, dt)
+	local coords = orthocam.screen_to_world_bounds(self.camera)	-- top_x, top_y, bottom_x, bottom_y -- vmath.vector4(-640, 360.00003051758, 640, -360.00003051758)
+	
+	local world_screen_width = coords.z - coords.x
+	
+	local pos = go.get_position(self.fx)
+	local newpos = vmath.vector3(coords.x + world_screen_width/2, coords.y, pos.z)
+
+	go.set_position(newpos, self.fx)
+
+	local rot = vmath.quat_rotation_x(3.14)
+	local res = vmath.rotate(rot, newpos)
+
+end
+
+-- local v = go.get_rotation(self.fx)
+-- go.set_rotation(rot + 1, self.fx)
+-- pos.x = coords.
+-- go.set_position(coords, self.fx)
+-- print('coords', coords.x, coords.y, coords.z, coords.w)
+
+-- print('pos', pos)
+-- print(coords)
+
+-- local viewport = orthocam.get_viewport(self.camera)
+-- local screen = 
+-- print(viewport)
+-- local world_coords = orthocam.screen_to_world(self.camera, viewport)
+-- print(world_coords)
+-- 
+-- -- local pos = go.get_position("/player")
+-- -- go.set_position(pos, self.fx)
+-- -- print("position", pos)
+-- -- 
+-- -- local s = vmath.vector3(10.0, 10.0, 10.0)
+-- -- go.set_scale(s, self.fx)
+-- local camera_url = msg.url("/camera")
+-- local cameras = orthocam.get_cameras()
+-- for k, v in pairs(cameras) do
+-- 	print(k, v)
+-- end
+-- local pos = go.get_position("/player")
+-- print(self.factory)
+-- self.camera = msg.url("/camera")
+-- go.set_position(particlefx_url, pos)
+-- local viewport = camera.get_viewport(camera_id)
+-- pprint("viewport", viewport)
+-- pprint('player_pos', player_pos)
+-- go.set_position(player_pos)
+
+-- local view = go.get("/camera#camera", "view")
+-- pprint(view)
+-- 
+-- print("url", particlefx_url)
+-- print('camera_url', camera_url)
+
+-- go.set_parent(particlefx_url, camera_url)
+
+-- msg.post(particlefx_url, "set_parent", { parent_id = camera_url })
+
+-- particlefx.play("#rain")
+-- local camera_id = hash("/camera")
+-- -- 
+-- local vp = camera.get_viewport(camera_id)
+-- pprint("viewport", viewport)
+
+-- particlefx.set_constant(particlefx_url, "emitter", "width", vp.z)
+-- particlefx.set_constant(particlefx_url, "emitter", "height", vp.w)
+
+-- 	print(viewport.x, viewport.y, viewport.z, viewport.w)
+-- 	local view = camera.get_view(camera_id)
+-- 	
+-- 	-- pprint("view", view)
+-- 	local projection = camera.get_projection(camera_id)
+-- 	local pos = vmath.vector3(viewport.x/2, viewport.w, 0)
+-- 	pprint(pos)
+
+-- 	-- print("projection", projection)
+-- local camera_url = msg.url("/camera")
+
+-- Define the animation properties
+-- local rotation_params = {
+-- 	mode = go.PLAYBACK_LOOP_FORWARD, -- Play the animation in a loop
+-- 	easing = go.EASING_LINEAR,       -- Use linear easing (you can change this)
+-- 	duration = 2,                    -- Duration of the animation in seconds
+-- 	curve = vmath.vector({0, 0, 360}) -- Rotation in degrees (z-axis)
+-- }
+
+-- Start the rotation animation
+
+-- go.animate(".", "euler.z", rotation_params)
+-- go.property("factory", hash("#rain_factory"))
+-- pprint(world_screen_width)
+-- pprint(coords)
