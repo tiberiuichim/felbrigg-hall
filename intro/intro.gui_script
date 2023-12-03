@@ -1,43 +1,20 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
-	if message_id == hash("proxy_loaded") then
-		-- New world is loaded. Init and enable it.
-		msg.post(sender, "init")
-		msg.post(sender, "enable")
-	end
+	print("init gui")
 end
 
 function on_input(self, action_id, action)
+	-- print("on input", action_id, action)
 	if action_id == hash("touch") and action.pressed then
 		local node = gui.get_node("start")
 		if gui.pick_node(node, action.x, action.y) then
 			print("Starting game")
-			msg.post(".", "start_game")
-			msg.post("#main_collectionproxy", "load")
+			msg.post("game:/bootstrap", "start_game")
+			-- msg.post("#main_collectionproxy", "load")
 		end
 	end
 end
 
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
+function final(self)
+	msg.post(".", "release_input_focus")
 end
