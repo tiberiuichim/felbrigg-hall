@@ -1,4 +1,8 @@
 script: "/intro/intro.gui_script"
+fonts {
+  name: "font"
+  font: "/intro/font.font"
+}
 background_color {
   x: 0.0
   y: 0.0
