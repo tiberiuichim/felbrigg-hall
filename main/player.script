@@ -39,6 +39,9 @@ function init(self)
 	self.correction = vmath.vector3()	-- correction factor because we're inside collision
 
 	self.trees_visible = true
+	local target = msg.url(".")
+	
+	-- msg.post("game:/camera#camera", "follow", {target="main:/player"})
 end
 
 function play_animation(self) 
