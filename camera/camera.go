@@ -23,6 +23,11 @@ components {
     type: PROPERTY_TYPE_NUMBER
   }
   properties {
+    id: "zoom"
+    value: "1.0"
+    type: PROPERTY_TYPE_NUMBER
+  }
+  properties {
     id: "projection"
     value: "FIXED_ZOOM"
     type: PROPERTY_TYPE_HASH

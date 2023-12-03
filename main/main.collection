@@ -16,6 +16,11 @@ instances {
   component_properties {
     id: "camera"
     properties {
+      id: "zoom"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
       id: "follow"
       value: "true"
       type: PROPERTY_TYPE_BOOLEAN

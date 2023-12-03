@@ -1,10 +1,10 @@
 emitters {
   id: "emitter"
   mode: PLAY_MODE_LOOP
-  duration: 1.0
+  duration: 10.0
   space: EMISSION_SPACE_WORLD
   position {
-    x: 1.0
+    x: -10.0
     y: 0.0
     z: 0.0
   }
@@ -20,14 +20,14 @@ emitters {
   blend_mode: BLEND_MODE_ADD
   particle_orientation: PARTICLE_ORIENTATION_DEFAULT
   inherit_velocity: 0.0
-  max_particle_count: 128
+  max_particle_count: 1000
   type: EMITTER_TYPE_BOX
   start_delay: 0.0
   properties {
     key: EMITTER_KEY_SPAWN_RATE
     points {
       x: 0.0
-      y: 100.0
+      y: 100000.0
       t_x: 1.0
       t_y: 0.0
     }
@@ -37,7 +37,7 @@ emitters {
     key: EMITTER_KEY_SIZE_X
     points {
       x: 0.0
-      y: 200.0
+      y: 20680.908
       t_x: 1.0
       t_y: 0.0
     }
@@ -47,7 +47,7 @@ emitters {
     key: EMITTER_KEY_SIZE_Y
     points {
       x: 0.0
-      y: 11.918465
+      y: 258.88443
       t_x: 1.0
       t_y: 0.0
     }
@@ -67,7 +67,7 @@ emitters {
     key: EMITTER_KEY_PARTICLE_LIFE_TIME
     points {
       x: 0.0
-      y: 2.5
+      y: 100.0
       t_x: 1.0
       t_y: 0.0
     }
@@ -177,13 +177,13 @@ emitters {
     key: PARTICLE_KEY_SCALE
     points {
       x: 0.0
-      y: 0.4324049
+      y: 8.191352
       t_x: 0.2610705
       t_y: -0.96531975
     }
     points {
       x: 1.0
-      y: 0.4324049
+      y: 0.63135225
       t_x: 0.2610705
       t_y: -0.96531975
     }
@@ -262,7 +262,7 @@ emitters {
   }
   size_mode: SIZE_MODE_MANUAL
   start_delay_spread: 0.0
-  duration_spread: 0.0
+  duration_spread: 10.0
   stretch_with_velocity: false
   start_offset: 0.0
   pivot {

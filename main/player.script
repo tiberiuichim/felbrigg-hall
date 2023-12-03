@@ -1,5 +1,5 @@
 go.property("speed", 100)
-go.property("max_zoom", 3 )
+go.property("max_zoom", 4 )
 -- go.property("camera", hash("/camera"))
 go.property("min_zoom", 10)
 
