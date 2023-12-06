@@ -60,7 +60,7 @@ animations {
     image: "/assets/images/Mc_done/Mc_walking_back4.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
-  playback: PLAYBACK_LOOP_FORWARD
+  playback: PLAYBACK_LOOP_PINGPONG
   fps: 5
   flip_horizontal: 0
   flip_vertical: 0
@@ -83,7 +83,7 @@ animations {
     image: "/assets/images/Mc_done/Mc_walking_front4.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
-  playback: PLAYBACK_LOOP_FORWARD
+  playback: PLAYBACK_LOOP_PINGPONG
   fps: 5
   flip_horizontal: 0
   flip_vertical: 0

@@ -1,6 +1,5 @@
 go.property("speed", 100)
 go.property("max_zoom", 4 )
--- go.property("camera", hash("/camera"))
 go.property("min_zoom", 10)
 
 KEY_UP = hash("key_up")
@@ -18,11 +17,17 @@ IDLE_LEFT = hash("idle_left")
 IDLE_BACK = hash("idle_back")
 IDLE_FRONT = hash("idle_front")
 
-ZOOM_IN = hash("zoom_in")
-ZOOM_OUT = hash("zoom_out")
+ADD_ITEM = hash("add_item")
 
--- ZOOM_OUT_MAX = 1
---ZOOM_IN_MAX = 6
+ZOOM_IN = hash("zoom_in") --ZOOM_IN_MAX = 6
+ZOOM_OUT = hash("zoom_out") -- ZOOM_OUT_MAX = 1
+
+INPUT_DIRECTIONS = {
+	KEY_UP = { y = 1 },
+	KEY_DOWN = { y = -1 },
+	KEY_RIGHT = { x = 1 },
+	KEY_LEFT = { x = -1 }
+}
 
 local camera = require "orthographic.camera"
 
@@ -34,14 +39,9 @@ function init(self)
 	self.current_animation = nil
 	self.stop_animation = hash("idle_front")
 
-	self.velocity = vmath.vector3()	-- directional speed of movement
-	self.pp = vmath.vector3()	-- player position
 	self.correction = vmath.vector3()	-- correction factor because we're inside collision
-
-	self.trees_visible = true
-	local target = msg.url(".")
 	
-	-- msg.post("game:/camera#camera", "follow", {target="main:/player"})
+	local target = msg.url(".")
 end
 
 function play_animation(self) 
@@ -63,6 +63,7 @@ function play_animation(self)
 
 	if anim ~= self.current_animation then
 		msg.post("#sprite", "play_animation", { id = anim })
+		print("change current animation", anim)
 		self.current_animation = anim
 	end
 end
@@ -74,14 +75,14 @@ function update(self, dt)
 
 	play_animation(self)
 	
-	local p = go.get_position()
-	local newp = p + self.input * self.speed * dt
-	go.set_position(newp)
+	local pos = go.get_position()
+	local travel_distance = self.input * self.speed * dt
+	local new_pos = pos + travel_distance
+	print(new_pos)
+	go.set_position(new_pos)
 
-	self.velocity = p - self.pp
-	self.pp = p
 	self.input = vmath.vector3()    -- reset the input, stop moving
-	self.correction = vmath.vector3()	-- no more corrections
+	self.correction = vmath.vector3()	-- reset the correction to 0
 end
 
 function handle_geometry_contact(self, normal, distance)
@@ -90,38 +91,21 @@ function handle_geometry_contact(self, normal, distance)
 	-- how to move out of all of them by accumulating a
 	-- correction vector for this frame:
 	if distance > 0 then
-		-- First, project the accumulated correction onto
-		-- the penetration vector
+		-- Project the accumulated correction onto the penetration vector
 		local proj = vmath.project(self.correction, normal * distance)
-		if proj < 1 then
-			-- Only care for projections that does not overshoot.
+		if proj < 1 then  -- Only care for projections that does not overshoot.
 			local comp = (distance - distance * proj) * normal
-			-- Apply compensation
-			go.set_position(go.get_position() + comp)
-			-- Accumulate correction done
-			self.correction = self.correction + comp
+			go.set_position(go.get_position() + comp) -- Apply compensation
+			self.correction = self.correction + comp -- Accumulate correction done
 		end
 	end
 end
-
-INPUT_DIRECTIONS = {
-	KEY_UP = { y = 1 },
-	KEY_DOWN = { y = -1 },
-	KEY_RIGHT = { x = 1 },
-	KEY_LEFT = { x = -1 }
-}
 
 function on_input(self, action_id, action)
 	local action_pos = vmath.vector3(action.x, action.y, 0)
 	local action_world_pos = camera.screen_to_world(self.camera, action_pos)
 	local camera_pos = go.get_position(self.camera)
 
-	-- local direction = INPUT_DIRECTIONS[action_id]
-	-- print("direction", direction, action_id)
-	-- if direction then
-	-- 	self.input.x = direction.x or 0
-	-- 	self.input.y = direction.y or 0
-	
 	if action_id == KEY_UP then
 		self.input.y = 1
 	elseif action_id == KEY_DOWN then
@@ -136,6 +120,8 @@ function on_input(self, action_id, action)
 		zoom_in(self)
 	elseif action_id == ZOOM_OUT then
 		zoom_out(self)
+	elseif action_id == ADD_ITEM then
+		msg.post(".", "add_random_item")
 	end
 end
 	
@@ -143,7 +129,7 @@ function zoom_out(self)
 	local zoom = camera.get_zoom(self.camera)
 	zoom = math.max(self.max_zoom, zoom - 0.05)
 	camera.set_zoom(self.camera, zoom)
-	print("zoom in", zoom)
+	print("zoom out", zoom)
 end
 
 function zoom_in(self) 
@@ -161,19 +147,27 @@ end
 
 function on_message(self, message_id, message, sender)
 	if (message.group == hash('oclusion')) then
-		-- if message.distance ~= nil then
-		-- 	if message.distance > 0 and self.trees_visible == true then
-		-- 		print("hiding trees")
-		-- 		self.trees_visible = false
-		-- 		local tilemap_url = msg.url("/world#tiledmap-defold")
-		-- 		go.set(tilemap_url, "opacity", 0.5)
-		-- 	elseif message.distance < 0 and self.trees_visible == false then
-		-- 		print("showing trees")
-		-- 		self.trees_visible = true
-		-- 	end
-		-- end
-		-- pprint(message)
 	elseif message_id == hash("contact_point_response") then
 		handle_geometry_contact(self, message.normal, message.distance)
 	end
 end
+
+-- if message.distance ~= nil then
+-- 	if message.distance > 0 and self.trees_visible == true then
+-- 		print("hiding trees")
+-- 		self.trees_visible = false
+-- 		local tilemap_url = msg.url("/world#tiledmap-defold")
+-- 		go.set(tilemap_url, "opacity", 0.5)
+-- 	elseif message.distance < 0 and self.trees_visible == false then
+-- 		print("showing trees")
+-- 		self.trees_visible = true
+-- 	end
+-- end
+-- pprint(message)
+
+-- local direction = INPUT_DIRECTIONS[action_id]
+-- print("direction", direction, action_id)
+-- if direction then
+-- 	self.input.x = direction.x or 0
+-- 	self.input.y = direction.y or 0
+-- self.trees_visible = true
