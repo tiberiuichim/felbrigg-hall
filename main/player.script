@@ -78,6 +78,8 @@ function update(self, dt)
 	local pos = go.get_position()
 	local travel_distance = self.input * self.speed * dt
 	local new_pos = pos + travel_distance
+	new_pos = vmath.vector3(math.floor(new_pos.x + 0.5), math.floor(new_pos.y + 0.5), new_pos.z) -- Round to integers
+	
 	print(new_pos)
 	go.set_position(new_pos)
 
