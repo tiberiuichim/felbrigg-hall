@@ -1,0 +1,37 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	-- print("init gui")
+
+	self.is_visible = false
+	local bgbox = gui.get_node("inventory_box")
+	gui.set_visible(bgbox, false)
+end
+
+function on_input(self, action_id, action)
+	-- print("on input", action_id, action)
+	if action_id == hash("inventory") then
+		local bgbox = gui.get_node("inventory_box")
+		
+		if self.is_visible == true then
+			gui.set_visible(bgbox, false)
+			self.is_visible = false
+		else
+			gui.set_visible(bgbox, true)
+			self.is_visible = true
+		end
+	elseif action_id == hash("touch") and action.pressed then
+		local node = gui.get_node("change_item_type")
+		
+		if gui.pick_node(node, action.x, action.y) then
+			print("Change item type")
+			-- gui.set_texture(node, "inventory")
+			-- print("Starting game")
+			-- msg.post("game:/bootstrap", "start_game")
+			-- -- msg.post("#main_collectionproxy", "load")
+		end
+	end
+end
+
+function final(self)
+	msg.post(".", "release_input_focus")
+end

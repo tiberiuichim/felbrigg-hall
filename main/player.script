@@ -165,7 +165,7 @@ end
 -- 		self.trees_visible = true
 -- 	end
 -- end
--- pprint(message)
+-- print(message)
 
 -- local direction = INPUT_DIRECTIONS[action_id]
 -- print("direction", direction, action_id)
@@ -173,3 +173,7 @@ end
 -- 	self.input.x = direction.x or 0
 -- 	self.input.y = direction.y or 0
 -- self.trees_visible = true
+-- player.script
+
+-- player.script
+

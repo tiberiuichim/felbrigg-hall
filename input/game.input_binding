@@ -42,6 +42,10 @@ key_trigger {
   input: KEY_C
   action: "action"
 }
+key_trigger {
+  input: KEY_I
+  action: "inventory"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"
