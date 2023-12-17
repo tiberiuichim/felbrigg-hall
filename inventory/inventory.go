@@ -1,18 +1,3 @@
-components {
-  id: "inventory"
-  component: "/inventory/inventory.gui"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
 embedded_components {
   id: "item_1"
   type: "sprite"
@@ -160,6 +145,31 @@ embedded_components {
   scale {
     x: 4.0
     y: 4.0
+    z: 1.0
+  }
+}
+embedded_components {
+  id: "sprite"
+  type: "sprite"
+  data: "tile_set: \"/inventory/inventory.atlas\"\n"
+  "default_animation: \"inventory_box\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 566.0
+    y: 425.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 3.662181
+    y: 3.609113
     z: 1.0
   }
 }

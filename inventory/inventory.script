@@ -1,0 +1,115 @@
+-- inventory_object.script
+
+function init(self)
+	self.inventorySlots = {}  -- Array to store inventory slots
+	self.draggingItem = nil
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("i") and action.pressed then
+		self:toggle_inventory()
+	end
+
+	if action.pressed then
+		local clicked_slot = self:check_clicked_slot(action.x, action.y)
+		if clicked_slot then
+			self:start_dragging(clicked_slot, action.x, action.y)
+		end
+	elseif action.released and self.draggingItem then
+		local released_slot = self:check_clicked_slot(action.x, action.y)
+		if released_slot then
+			self:drop_item(released_slot)
+		end
+		self:cleanup_dragging()
+	end
+
+	if self.draggingItem then
+		self:move_dragging_item(action.x, action.y)
+	end
+end
+
+function toggle_inventory(self)
+	-- Logic to show/hide the inventory game object
+end
+
+function check_clicked_slot(self, x, y)
+	-- Logic to check which slot was clicked based on coordinates
+	-- Return the clicked slot or nil if no slot was clicked
+end
+
+function start_dragging(self, slot, x, y)
+	-- Logic to start dragging the item from the clicked slot
+	-- Create a visual representation of the dragging item and update self.draggingItem
+end
+
+function drop_item(self, slot)
+	-- Logic to drop the item onto the released slot
+	-- Perform actions based on the drop location
+end
+
+function move_dragging_item(self, x, y)
+	-- Logic to move the dragging item along with the mouse coordinates
+end
+
+function cleanup_dragging(self)
+	-- Logic to clean up the dragging item after dropping or releasing the mouse button
+	-- Reset self.draggingItem and any associated variables
+end
+
+-- inventory_object.script
+
+function init(self)
+	self.inventorySlots = {}  -- Array to store inventory slots
+	self.draggingItem = nil
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("i") and action.pressed then
+		self:toggle_inventory()
+	end
+
+	if action.pressed then
+		local clicked_slot = self:check_clicked_slot(action.x, action.y)
+		if clicked_slot then
+			self:start_dragging(clicked_slot, action.x, action.y)
+		end
+	elseif action.released and self.draggingItem then
+		local released_slot = self:check_clicked_slot(action.x, action.y)
+		if released_slot then
+			self:drop_item(released_slot)
+		end
+		self:cleanup_dragging()
+	end
+
+	if self.draggingItem then
+		self:move_dragging_item(action.x, action.y)
+	end
+end
+
+function toggle_inventory(self)
+	-- Logic to show/hide the inventory game object
+end
+
+function check_clicked_slot(self, x, y)
+	-- Logic to check which slot was clicked based on coordinates
+	-- Return the clicked slot or nil if no slot was clicked
+end
+
+function start_dragging(self, slot, x, y)
+	-- Logic to start dragging the item from the clicked slot
+	-- Create a visual representation of the dragging item and update self.draggingItem
+end
+
+function drop_item(self, slot)
+	-- Logic to drop the item onto the released slot
+	-- Perform actions based on the drop location
+end
+
+function move_dragging_item(self, x, y)
+	-- Logic to move the dragging item along with the mouse coordinates
+end
+
+function cleanup_dragging(self)
+	-- Logic to clean up the dragging item after dropping or releasing the mouse button
+	-- Reset self.draggingItem and any associated variables
+end
